@@ -38,7 +38,6 @@
 .header {
   margin: auto;
   inline-size: clamp(var(--inline-size));
-  block-size: 368px;
   margin-block-start: 100px;
   margin-block-end: 100px;
   padding-block: clamp(var(--padding-block));
@@ -53,6 +52,7 @@
 
 .header-title {
   font-size: clamp(var(--title-size));
+  text-transform: uppercase;
 }
 
 .header-subtitle {
@@ -105,31 +105,31 @@
   block-size: 100%;
 }
 
-.image-invert {
+.filter-invert {
   filter: invert(0.2);
 }
 
-.image-saturate {
+.filter-saturate {
   filter: saturate(2.5);
 }
 
-.image-blur {
+.filter-blur {
   filter: blur(4px);
 }
 
-.image-brightness {
+.filter-brightness {
   filter: brightness(2);
 }
 
-.image-sepia {
-  filter: sepia(0.4) opacity(0.77);
+.filter-sepia {
+  filter: sepia(0.4);
 }
 
-.image-hue-rotate {
+.filter-hue-rotate {
   filter: hue-rotate(5.142rad);
 }
 
-.image-opacity {
+.filter-opacity-brightness {
   filter: opacity(0.5) brightness(1.4);
 }
 
@@ -143,6 +143,18 @@
   text-shadow: var(--main-color) 1px 0px, var(--main-color) 1px 1px, var(--main-color) 0px 1px, 
   var(--main-color) -1px 1px, var(--main-color) -1px 0px, var(--main-color) -1px -1px, 
   var(--main-color) 0px -1px, var(--main-color) 1px -1px;
+}
+
+.card:nth-child(1) .watermark {
+  text-transform: uppercase;
+}
+
+.card:nth-child(2) .watermark {
+  text-transform: uppercase;
+}
+
+.card:nth-child(3) .watermark {
+  text-transform: uppercase;
 }
 
 .card__text-container {
@@ -159,23 +171,28 @@
   gap: 5px;
 }
 
+.button {
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: var(--accent-size);
+  cursor: pointer;
+  transition: box-shadow .3s linear;
+}
+
 .card__icon-button {
   border: 2px solid transparent;
   background-color: var(--main-color);
   cursor: pointer;
   block-size: 38px;
   padding: 0;
+  transition: border .3s ease;
 }
 
 .card__like-button {
-  background-color: var(--main-color);
   position: relative;
-  inline-size: 130px;
-  block-size: 38px;
-  border: 2px solid var(--accent-color);
-  font-family: var(--accent-font);
-  font-size: var(--accent-size);
-  cursor: pointer;
+  inline-size: 100%;
+  max-inline-size: 130px;
 }
 
 /*Секция footer*/
@@ -188,14 +205,10 @@
 }
 
 .dialog-button {
-  background-color: var(--main-color);
   position: relative;
   z-index: 0;
   inline-size: 338px;
   block-size: 55px;
-  border: 2px solid var(--accent-color);
-  font-family: var(--accent-font);
-  font-size: var(--accent-size);
   display: flex;
   gap: 9px;
   justify-content: center;
@@ -221,17 +234,11 @@
 }
 
 .dialog[open] {
-  position: fixed;
   display: grid;
-  grid-template-columns: 39px 233px;
-  grid-template-rows: 63px 38px;
-  gap: 20px;
-  align-items: center;
-  align-content: center;
 }
 
 .dialog[open]::backdrop {
-  background: linear-gradient(180deg, var(--background-white) 0%, var(--background-black) 100%);
+  background-color: var(--accent-color);
   opacity: 75%;
 }
 
@@ -240,9 +247,13 @@
   margin-block-end: 384px;
   font-family: var(--accent-font);
   background-color: var(--main-color);
-  max-inline-size: 357px;
-  block-size: 191px;
+  max-inline-size: 353px;
   padding: 30px;
+  grid-template-columns: 39px 230px;
+  grid-template-rows: 70px 38px;
+  gap: 20px;
+  align-items: center;
+  align-content: center;
 }
 
 .dialog__icon {
@@ -259,7 +270,7 @@
 
 .close {
   margin-block-start: 10px;
-  max-inline-size: 293px;
+  max-inline-size: 290px;
   block-size: 38px;
   grid-row-start: 2;
 }
@@ -268,8 +279,8 @@
 
 @media (width <= 375.5px) {
   .header {
-    block-size: 327px;
     padding-block-start: 120px;
+    padding-block-end: 120px;
   }
 
   .card:nth-child(7) .card__text {
@@ -278,10 +289,6 @@
 
   .card:nth-child(1) .card__text {
     padding-inline-end: 2px;
-  }
-
-  .card__text-container {
-    padding: 24.7px 25px;
   }
 
   .watermark {
@@ -303,9 +310,6 @@
     margin-block-end: 236px;
     max-inline-size: 340px;
     padding-inline: 39px;
-  }
-
-  .dialog[open] {
     grid-template-columns: 39px 198px;
   }
 
@@ -317,23 +321,15 @@
 
 /*hover и focus эффекты*/
 
-.card__like-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.button:focus-visible {
   box-shadow: var(--accent-color) 2px 2px;
 }
 
-.dialog-button:focus {
-  outline: none;
-}
-
-.dialog-button:focus-visible {
-  box-shadow: var(--accent-color) 2px 2px;
-}
-
-.card__like-button::after {
+.button::after {
   content: '';
   position: absolute;
   top: 0;
@@ -347,25 +343,7 @@
   z-index: 0;
 }
 
-.card__like-button:hover::after {
-  transform: scaleX(1);
-}
-
-.dialog-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  background-color: var(--accent-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.5s ease-in-out;
-  z-index: 0;
-}
-
-.dialog-button:hover::after {
+.button:hover::after {
   transform: scaleX(1);
 }
 
@@ -375,7 +353,7 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--accent-color);
-  transition: 0.3s ease;
+  transition: .3s ease;
 }
 
 /*Анимация иконки сердца*/
@@ -439,6 +417,6 @@
 }
 
 .is-liked .sparks {
-  animation: sparks .3s .3s ease-in;
+  animation: fadeIn .3s .3s ease-in;
   animation-iteration-count: 1;
 }
