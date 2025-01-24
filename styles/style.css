@@ -246,7 +246,7 @@
 }
 
 .dialog__icon {
-  inline-size: 40px;
+  max-inline-size: 40px;
   block-size: auto;
   mix-blend-mode: difference;
 }
@@ -273,7 +273,15 @@
   }
 
   .card:nth-child(7) .card__text {
-    padding-inline-end: 5px;
+    padding-inline-end: 6px;
+  }
+
+  .card:nth-child(1) .card__text {
+    padding-inline-end: 2px;
+  }
+
+  .card__text-container {
+    padding: 24.7px 25px;
   }
 
   .watermark {
