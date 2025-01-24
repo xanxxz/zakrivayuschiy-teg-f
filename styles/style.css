@@ -246,7 +246,7 @@
 }
 
 .dialog__icon {
-  max-inline-size: 39px;
+  inline-size: 40px;
   block-size: auto;
   mix-blend-mode: difference;
 }
