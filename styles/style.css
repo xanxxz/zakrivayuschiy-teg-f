@@ -10,7 +10,424 @@
 
 */
 
+@supports (-webkit-text-stroke: var(--main-color)) {
+  .watermark {
+    text-shadow: none;
+    -webkit-text-stroke: var(--main-color);
+  }
+}
+
 .page {
-  min-inline-size: 320px;
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
   min-block-size: 100dvb;
+  background-image: 
+    repeating-linear-gradient(to right, var(--gradient-color-line-white), var(--gradient-color-line-white) 2px, 
+    var(--gradient-color-line-transparent) 2px, var(--gradient-color-line-transparent) 4px), 
+    repeating-linear-gradient(to bottom, var(--gradient-color-line-white), var(--gradient-color-line-white) 2px, 
+    var(--gradient-color-line-transparent) 2px, var(--gradient-color-line-transparent) 4px), 
+    repeating-linear-gradient(to bottom, var(--background-white), var(--background-black)), 
+    var(--background-image);
+  background-attachment: fixed;
+  font-family: var(--main-font), sans-serif;
+  font-weight: var(--main-weight);
+}
+
+/*Секция header*/
+
+.header {
+  margin: auto;
+  inline-size: clamp(var(--inline-size));
+  block-size: 368px;
+  margin-block-start: 100px;
+  margin-block-end: 100px;
+  padding-block: clamp(var(--padding-block));
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
+  text-align: center;
+  font-family: var(--accent-font);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header-title {
+  font-size: clamp(var(--title-size));
+  font-weight: var(--main-weight);
+}
+
+.header-subtitle {
+  font-size: clamp(var(--subtitle-size));
+  text-transform: uppercase;
+}
+
+/*Секция main*/
+
+.main {
+  margin: auto;
+  inline-size: clamp(var(--inline-size));
+}
+
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card:nth-child(n + 3) .card__text-container{
+  padding-block-start: 26.5px;
+}
+
+.card {
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
+}
+
+.card__title {
+  padding: 4px 10px;
+  font-size: var(--main-size);
+}
+
+.card__image-container {
+  position: relative;
+  block-size: 100%;
+  max-block-size: 700px;
+  border-block-start: 2px solid var(--accent-color);
+  border-block-end: 2px solid var(--accent-color);
+}
+
+.image {
+  vertical-align: top;
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.image-invert {
+  filter: invert(0.2);
+}
+
+.image-saturate {
+  filter: saturate(2.5);
+}
+
+.image-blur {
+  filter: blur(4px);
+}
+
+.image-brightness{
+  filter: brightness(2);
+}
+
+.image-sepia {
+  filter: sepia(0.4) opacity(0.77);
+}
+
+.image-hue-rotate {
+  filter: hue-rotate(5.142rad);
+}
+
+.image-opacity {
+  filter: opacity(0.5) brightness(1.4);
+}
+
+.watermark {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  font-size: var(--accent-size);
+  font-family: var(--accent-font);
+  mix-blend-mode: hard-light;
+  text-shadow: 
+  var(--main-color) 1px 0px, var(---main-color) 1px 1px, var(--main-color) 0px 1px, 
+  var(--main-color) -1px 1px, var(--main-color) -1px 0px, var(--main-color) -1px -1px, 
+  var(--main-color) 0px -1px, var(--main-color) 1px -1px;
+}
+
+.card__text-container {
+  font-size: var(--main-size);
+  padding: 25px 25px;
+  line-height: 21px;
+  display: grid;
+  gap: 26px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  cursor: pointer;
+  block-size: 38px;
+  padding: 0;
+}
+
+.card__like-button {
+  position: relative;
+  inline-size: 130px;
+  block-size: 38px;
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: var(--accent-size);
+  cursor: pointer;
+}
+
+/*Секция footer*/
+
+.footer {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-button {
+  position: relative;
+  inline-size: 338px;
+  block-size: 55px;
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: var(--accent-size);
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button__icon {
+  max-inline-size: 21px;
+  block-size: auto;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  background-color: var(--main-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+
+.dialog[open] {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 39px 233px;
+  grid-template-rows: 63px 38px;
+  gap: 20px;
+  align-items: center;
+  align-content: center;
+}
+
+.dialog[open]::backdrop {
+  background: linear-gradient(180deg, var(--background-white) 0%, var(--background-black) 100%);
+  opacity: 75%;
+}
+
+.dialog {
+  position: fixed;
+  margin-block-end: 384px;
+  font-family: var(--accent-font);
+  background-color: var(--main-color);
+  max-inline-size: 357px;
+  block-size: 191px;
+  padding: 30px;
+}
+
+.dialog__icon {
+  max-inline-size: 39px;
+  block-size: auto;
+  mix-blend-mode: difference;
+}
+
+.dialog__text {
+  text-transform: uppercase;
+  font-size: var(--accent-size);
+  line-height: 21px;
+}
+
+.close {
+  margin-block-start: 10px;
+  max-inline-size: 293px;
+  block-size: 38px;
+  grid-row-start: 2;
+}
+
+/*Медиа запрос width <= 375.5px*/
+
+@media (width <= 375.5px) {
+  .header {
+    block-size: 327px;
+    padding-block-start: 120px;
+  }
+
+  .card:nth-child(7) .card__text{
+    padding-inline-end: 5px;
+  }
+
+  .watermark {
+    top: 24px;
+    right: 10px;
+  }
+
+  .dialog-button {
+    inline-size: 310px;
+    block-size: 84px;
+    flex-direction: column;
+  }
+
+  .button__icon {
+    max-inline-size: 28px;
+  }
+
+  .dialog {
+    margin-block-end: 236px;
+    max-inline-size: 340px;
+    padding-inline: 39px;
+  }
+
+  .dialog[open] {
+    grid-template-columns: 39px 198px;
+  }
+
+  .close {
+    max-inline-size: 257px;
+    block-size: 38px;
+  }
+}
+
+/*hover и focus эффекты*/
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: var(--accent-color) 2px 2px;
+}
+
+.dialog-button:focus {
+  outline: none;
+}
+
+.dialog-button:focus-visible {
+  box-shadow: var(--accent-color) 2px 2px;
+}
+
+.card__like-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.dialog-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.dialog-button:hover::after {
+  transform: scaleX(1);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+  transition: 0.3s ease;
+}
+
+/*Анимация иконки сердца*/
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: transparent;
+  transition: fill .3s linear .03s;
+}
+
+.like-icon:hover .core{
+  fill: var(--fill-contour);
+  transition: fill .3s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill .3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--fill-contour);
+  transition: fill .3s .05s linear;
+}
+
+.like-icon:active .core{
+  fill: var(--fill-main);
+  transition: fill .3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--fill-main);
+  transition: fill .3s .05s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--fill-main);
+  transition: fill .3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--fill-main);
+  transition: fill .3s .05s linear;
+}
+
+.contour {
+  fill: var(--fill-contour);
+  transition: fill .1s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--fill-main);
+  transition: fill .3s .06s linear;
+}
+
+.is-liked .heart {
+  animation: heart-pulse .3s .1s ease-in;
+}
+
+.is-liked .sparks {
+  animation: sparks .3s .3s ease-in;
+  animation-iteration-count: 1;
 }

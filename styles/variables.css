@@ -1,1 +1,23 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --main-font: 'Inter-Variable';
+    --accent-font: 'PressStart2P-Regular';
+    --main-weight: 400;
+    --accent-weight: 700;
+    --background-image: url(../images/background.png);
+    --main-color: #fff;
+    --accent-color: #000;
+    --main-size: 18px;
+    --accent-size: 14px;
+    --background-white: #e7e7e7;
+    --background-black: #1a1a1a;
+    --gradient-color-line-white: #d3d3d3;
+    --gradient-color-line-transparent: transparent;
+    --title-size: 3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem;
+    --subtitle-size: 0.875rem, 0.226rem + 2.7692vw, 1.4375rem;
+    --inline-size: 375px, 50%, 700px;
+    --padding-block: 120px, 50%, 128px;
+    --fill-contour: #000;
+    --fill-main: #ff0000;
+    --fill-core: #fff;
+}
