@@ -21,13 +21,13 @@
   min-inline-size: 375px;
   max-inline-size: 1440px;
   min-block-size: 100dvb;
-  background-image: 
+  background-color: var(--main-color);
+  background: 
     repeating-linear-gradient(to right, var(--gradient-color-line-white), var(--gradient-color-line-white) 2px, 
     var(--gradient-color-line-transparent) 2px, var(--gradient-color-line-transparent) 4px), 
     repeating-linear-gradient(to bottom, var(--gradient-color-line-white), var(--gradient-color-line-white) 2px, 
     var(--gradient-color-line-transparent) 2px, var(--gradient-color-line-transparent) 4px), 
-    repeating-linear-gradient(to bottom, var(--background-white), var(--background-black)), 
-    var(--background-image);
+    repeating-linear-gradient(to bottom, var(--background-white), var(--background-black));
   background-attachment: fixed;
   font-family: var(--main-font), sans-serif;
   font-weight: var(--main-weight);
@@ -117,7 +117,7 @@
   filter: blur(4px);
 }
 
-.image-brightness{
+.image-brightness {
   filter: brightness(2);
 }
 
@@ -273,7 +273,7 @@
     padding-block-start: 120px;
   }
 
-  .card:nth-child(7) .card__text{
+  .card:nth-child(7) .card__text {
     padding-inline-end: 5px;
   }
 
@@ -382,7 +382,7 @@
   transition: fill .3s linear .03s;
 }
 
-.like-icon:hover .core{
+.like-icon:hover .core {
   fill: var(--fill-contour);
   transition: fill .3s linear;
 }
@@ -397,7 +397,7 @@
   transition: fill .3s .05s linear;
 }
 
-.like-icon:active .core{
+.like-icon:active .core {
   fill: var(--fill-main);
   transition: fill .3s linear;
 }
