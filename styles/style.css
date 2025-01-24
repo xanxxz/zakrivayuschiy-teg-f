@@ -10,10 +10,10 @@
 
 */
 
-@supports (-webkit-text-stroke: var(--main-color)) {
+@supports (-webkit-text-stroke: #fff) {
   .watermark {
     text-shadow: none;
-    -webkit-text-stroke: var(--main-color);
+    -webkit-text-stroke: #fff;
   }
 }
 
@@ -30,7 +30,7 @@
     repeating-linear-gradient(to bottom, var(--background-white), var(--background-black));
   background-attachment: fixed;
   font-family: var(--main-font), sans-serif;
-  font-weight: var(--main-weight);
+  font-variation-settings: "wght" var(--main-weight);
 }
 
 /*Секция header*/
@@ -53,7 +53,6 @@
 
 .header-title {
   font-size: clamp(var(--title-size));
-  font-weight: var(--main-weight);
 }
 
 .header-subtitle {
@@ -75,7 +74,7 @@
   gap: 50px;
 }
 
-.card:nth-child(n + 3) .card__text-container{
+.card:nth-child(n + 3) .card__text-container {
   padding-block-start: 26.5px;
 }
 
@@ -87,6 +86,7 @@
 .card__title {
   padding: 4px 10px;
   font-size: var(--main-size);
+  font-variation-settings: "wght" var(--accent-weight);
 }
 
 .card__image-container {
@@ -140,8 +140,7 @@
   font-size: var(--accent-size);
   font-family: var(--accent-font);
   mix-blend-mode: hard-light;
-  text-shadow: 
-  var(--main-color) 1px 0px, var(---main-color) 1px 1px, var(--main-color) 0px 1px, 
+  text-shadow: var(--main-color) 1px 0px, var(--main-color) 1px 1px, var(--main-color) 0px 1px, 
   var(--main-color) -1px 1px, var(--main-color) -1px 0px, var(--main-color) -1px -1px, 
   var(--main-color) 0px -1px, var(--main-color) 1px -1px;
 }
