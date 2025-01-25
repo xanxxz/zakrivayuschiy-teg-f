@@ -52,12 +52,10 @@
 
 .header-title {
   font-size: clamp(var(--title-size));
-  text-transform: uppercase;
 }
 
 .header-subtitle {
   font-size: clamp(var(--subtitle-size));
-  text-transform: uppercase;
 }
 
 /*Секция main*/
@@ -145,21 +143,9 @@
   var(--main-color) 0px -1px, var(--main-color) 1px -1px;
 }
 
-.card:nth-child(1) .watermark {
-  text-transform: uppercase;
-}
-
-.card:nth-child(2) .watermark {
-  text-transform: uppercase;
-}
-
-.card:nth-child(3) .watermark {
-  text-transform: uppercase;
-}
-
 .card__text-container {
   font-size: var(--main-size);
-  padding: 25px 25px;
+  padding: 25.5px 23.5px;
   line-height: 21px;
   display: grid;
   gap: 26px;
@@ -178,6 +164,8 @@
   font-size: var(--accent-size);
   cursor: pointer;
   transition: box-shadow .3s linear;
+  position: relative;
+  z-index: 0;
 }
 
 .card__icon-button {
@@ -190,7 +178,6 @@
 }
 
 .card__like-button {
-  position: relative;
   inline-size: 100%;
   max-inline-size: 130px;
 }
@@ -205,15 +192,12 @@
 }
 
 .dialog-button {
-  position: relative;
-  z-index: 0;
   inline-size: 338px;
   block-size: 55px;
   display: flex;
   gap: 9px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
 .button__icon {
@@ -247,10 +231,10 @@
   margin-block-end: 384px;
   font-family: var(--accent-font);
   background-color: var(--main-color);
-  max-inline-size: 353px;
+  inline-size: 353px;
   padding: 30px;
   grid-template-columns: 39px 230px;
-  grid-template-rows: 70px 38px;
+  grid-template-rows: 63px 46px;
   gap: 20px;
   align-items: center;
   align-content: center;
@@ -270,7 +254,7 @@
 
 .close {
   margin-block-start: 10px;
-  max-inline-size: 290px;
+  inline-size: 290px;
   block-size: 38px;
   grid-row-start: 2;
 }
@@ -283,12 +267,8 @@
     padding-block-end: 120px;
   }
 
-  .card:nth-child(7) .card__text {
-    padding-inline-end: 6px;
-  }
-
-  .card:nth-child(1) .card__text {
-    padding-inline-end: 2px;
+ .card__text {
+    padding-inline-end: 5px;
   }
 
   .watermark {
@@ -314,8 +294,7 @@
   }
 
   .close {
-    max-inline-size: 257px;
-    block-size: 38px;
+    inline-size: 255px;
   }
 }
 
