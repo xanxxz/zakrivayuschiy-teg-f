@@ -247,7 +247,6 @@
 }
 
 .dialog__text {
-  text-transform: uppercase;
   font-size: var(--accent-size);
   line-height: 21px;
 }
