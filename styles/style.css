@@ -145,7 +145,7 @@
 
 .card__text-container {
   font-size: var(--main-size);
-  padding: 25.5px 23.5px;
+  padding: 25.5px 25px;
   line-height: 21px;
   display: grid;
   gap: 26px;
@@ -230,9 +230,9 @@
   margin-block-end: 384px;
   font-family: var(--accent-font);
   background-color: var(--main-color);
-  inline-size: 353px;
+  min-inline-size: 353px;
   padding: 30px;
-  grid-template-columns: 39px 230px;
+  grid-template-columns: 39px 220px;
   grid-template-rows: 63px 46px;
   gap: 20px;
   align-items: center;
@@ -252,9 +252,10 @@
 
 .close {
   margin-block-start: 10px;
-  inline-size: 290px;
+  inline-size: 287px;
   block-size: 38px;
   grid-row-start: 2;
+  padding: 0;
 }
 
 /*Медиа запрос width <= 375.5px*/
@@ -286,13 +287,13 @@
 
   .dialog {
     margin-block-end: 236px;
-    max-inline-size: 340px;
+    min-inline-size: 340px;
     padding-inline: 39px;
-    grid-template-columns: 39px 198px;
+    grid-template-columns: 39px 197px;
   }
 
   .close {
-    inline-size: 255px;
+    inline-size: 257px;
   }
 }
 
